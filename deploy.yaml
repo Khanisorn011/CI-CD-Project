@@ -1,7 +1,7 @@
 ---
 - hosts: webservers
   gather_facts: no
-  remote_user: root
+  remote_user: vboxuser
   become: yes
   tasks:
     - name: Install docker and some dependencies
@@ -9,10 +9,11 @@
         name: python3-pip, docker.io
         state: present
 
-    - name: Start docker service
+    - name: Start and enable docker service
       service:
         name: docker
         state: started
+        enabled: yes
 
     - name: Install docker python module
       pip:
@@ -24,5 +25,5 @@
         image: khanisorn011/ci-cd:latest
         state: started
         recreate: yes
-        exposed_ports:
+        ports:
           - "8080:8080"
