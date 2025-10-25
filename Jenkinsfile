@@ -4,7 +4,7 @@ def dockerHubUser="khanisorn011"
 def gitURL="https://github.com/Khanisorn011/CI-CD-Project.git"
 
 node {
-    //def sonarscanner = tool name: 'SonarQubeScanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+    def sonarscanner = tool name: 'SonarQubeScanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
     stage('Checkout') {
         checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: gitURL]]]
     }
