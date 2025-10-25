@@ -21,7 +21,7 @@
     - name: Create Application container
       docker_container:
         name: docker-pipeline
-        image: anujsharma1990/springbootdocker:latest
+        image: khanisorn011/ci-cd:latest
         state: started
         recreate: yes
         exposed_ports:
