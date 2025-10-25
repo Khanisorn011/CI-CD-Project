@@ -6,7 +6,7 @@ def gitURL="https://github.com/Khanisorn011/CI-CD-Project.git"
 node {
     //def sonarscanner = tool name: 'SonarQubeScanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
     stage('Checkout') {
-        checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: gitURL]]]
+        checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: gitURL]]]
     }
 
     stage('Build'){
