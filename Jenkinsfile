@@ -1,4 +1,4 @@
-def containerName="CI/CD"
+def containerName="ci-cd"
 def tag="latest"
 def dockerHubUser="khanisorn011"
 def gitURL="https://github.com/Khanisorn011/CI-CD-Project.git"
