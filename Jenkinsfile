@@ -43,7 +43,9 @@ node {
 		}
     }
      
-    stage("Ansible Deploy"){
-        ansiblePlaybook inventory: 'hosts', playbook: 'deploy.yaml'
+    stage("Ansible Deploy") {
+        withEnv(['ANSIBLE_HOST_KEY_CHECKING=False']) {
+            ansiblePlaybook inventory: 'hosts', playbook: 'deploy.yaml'
+        }
     }
 }
