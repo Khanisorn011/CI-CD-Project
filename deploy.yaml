@@ -16,8 +16,9 @@
         enabled: yes
 
     - name: Install docker python module
-      pip:
+      apt:
         name: python3-docker
+        state: present
 
     - name: Create Application container
       docker_container:
