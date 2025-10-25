@@ -45,7 +45,7 @@ node {
      
     stage("Ansible Deploy") {
         withEnv(['ANSIBLE_HOST_KEY_CHECKING=False']) {
-            ansiblePlaybook inventory: 'hosts', playbook: 'deploy.yaml'
+            ansiblePlaybook credentialsId: 'vbox-creds', inventory: 'hosts', playbook: 'deploy.yaml'
         }
     }
 }
