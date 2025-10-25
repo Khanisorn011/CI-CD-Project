@@ -14,12 +14,10 @@ node {
     }
 
 	stage('Docker Login') {
-        steps {
-            withCredentials([usernamePassword(credentialsId: 'dockerHubAccount', usernameVariable: 'dockerUser', passwordVariable: 'dockerPassword')]) {
-                sh 'echo $dockerPassword | docker login -u khanisorn011 --password-stdin'
-            }
-        }
-    }
+    	withCredentials([usernamePassword(credentialsId: 'dockerHubAccount', usernameVariable: 'dockerUser', passwordVariable: 'dockerPassword')]) {
+        	sh 'echo $dockerPassword | docker login -u khanisorn011 --password-stdin'
+    	}
+	}
 
     stage("Image Prune"){
          sh "docker image prune -f"
